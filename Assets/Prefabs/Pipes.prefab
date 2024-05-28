@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 465614038773796682}
   m_Layer: 0
   m_Name: 'Top pipe '
-  m_TagString: Untagged
+  m_TagString: Crash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 2335860569028982598}
   m_Layer: 0
   m_Name: Bottom pipe
-  m_TagString: Untagged
+  m_TagString: Crash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 7428294726091214962}
   m_Layer: 0
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: PlusPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

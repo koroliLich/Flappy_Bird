@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -41,5 +42,13 @@ public class Player : MonoBehaviour
     {
         spriteIndex = (spriteIndex + 1) % sprites.Length;
         spriteRenderer.sprite = sprites[spriteIndex];
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Crash") {
+            FindObjectOfType<Game>().GameOver();
+        } else if (other.gameObject.tag == "PlusPoint") {
+            FindObjectOfType<Game>().Scoring();
+        }
     }
 }
