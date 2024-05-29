@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     private Vector3 direction;
     private const float gravity = 9.8f;
-    public float fly_power = 4f;
+    public float fly_power = 4.8f;
     private SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
     private int spriteIndex;
@@ -18,7 +18,13 @@ public class Player : MonoBehaviour
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
+    public void ResetPosition() {
+        Vector3 position = transform.position;
+        position.y = 0f;
+        transform.position = position;
+        transform.rotation = Quaternion.identity;
+        direction = Vector3.zero;
+    }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Mouse0)) {
             direction = Vector3.up * fly_power;
