@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,7 +11,7 @@ public class Player : MonoBehaviour
     private float rotationSpeed = 7f;
     private float rotationAngle = 45f;
     private Quaternion targetRotation;
-
+    
     private void Start() {
         InvokeRepeating(nameof(AnimateSprite), 0.1f, 0.1f);
     }

@@ -1,14 +1,21 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
+    public Player player;
+    public Text scoretext;
     private int score;
 
     public void Scoring() {
-        Debug.Log("Scoring");
+        score++;
+        scoretext.text = score.ToString();
     }
+    
     public void GameOver() {
-        Debug.Log("GameOver");
+        Time.timeScale = 0f;
+        player.enabled = false;
     }
 
 }
