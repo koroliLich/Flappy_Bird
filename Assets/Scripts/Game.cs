@@ -4,18 +4,22 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     public Player player;
-    public Text scoretext;
+    public Text scoreText;
     public GameObject gameOver;
     public GameObject getReady;
     public GameObject playButton;
     public GameObject resetButton;
+    public GameObject pause;
+    public GameObject pauseText;
     private int score;
-
+    
     private void Awake() {
         gameOver.SetActive(false);
         resetButton.SetActive(false);
         getReady.SetActive(true);
         playButton.SetActive(true);
+        pause.SetActive(false);
+        pauseText.SetActive(false);
         
         Pause();
     }
@@ -27,13 +31,15 @@ public class Game : MonoBehaviour
     public void Play() {
         getReady.SetActive(false);
         playButton.SetActive(false);
-        
+        pause.SetActive(false);
+        pauseText.SetActive(false);
+
         Time.timeScale = 1f;
         player.enabled = true;
     }
     public void Reset() {
         score = 0;
-        scoretext.text = score.ToString();
+        scoreText.text = score.ToString();
         
         gameOver.SetActive(false);
         resetButton.SetActive(false);
@@ -54,7 +60,7 @@ public class Game : MonoBehaviour
 
     public void Scoring() {
         score++;
-        scoretext.text = score.ToString();
+        scoreText.text = score.ToString();
     }
     
     public void GameOver() {

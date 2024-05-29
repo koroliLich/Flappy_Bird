@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private Player player;
     private Vector3 direction;
     private const float gravity = 9.8f;
     public float fly_power = 4.8f;
@@ -11,6 +12,9 @@ public class Player : MonoBehaviour
     private float rotationSpeed = 7f;
     private float rotationAngle = 45f;
     private Quaternion targetRotation;
+    public GameObject gamebutton;
+    public GameObject pause;
+    public GameObject pauseText;
     
     private void Start() {
         InvokeRepeating(nameof(AnimateSprite), 0.1f, 0.1f);
@@ -30,6 +34,13 @@ public class Player : MonoBehaviour
             direction = Vector3.up * fly_power;
         } 
         
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            FindObjectOfType<Game>().Pause();
+            gamebutton.SetActive(true);
+            pause.SetActive(true);
+            pauseText.SetActive(true);
+        }
+        
         direction.y += -gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
 
@@ -43,8 +54,7 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
     }
-    private void AnimateSprite()
-    {
+    private void AnimateSprite() {
         spriteIndex = (spriteIndex + 1) % sprites.Length;
         spriteRenderer.sprite = sprites[spriteIndex];
     }
