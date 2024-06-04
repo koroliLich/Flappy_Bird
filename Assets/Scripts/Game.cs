@@ -23,11 +23,6 @@ public class Game : MonoBehaviour
         
         Pause();
     }
-    private void OnEnable() {
-        Vector3 position = transform.position;
-        position.y = 0f;
-        transform.position = position;
-    }
     public void Play() {
         getReady.SetActive(false);
         playButton.SetActive(false);
@@ -46,7 +41,7 @@ public class Game : MonoBehaviour
         getReady.SetActive(true);
         playButton.SetActive(true);
         player.ResetPosition();
-        
+
         Pipes[] pipes = FindObjectsOfType<Pipes>();
         for (int i = 0; i < pipes.Length; i++) {
             Destroy(pipes[i].gameObject);

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Player player;
     private Vector3 direction;
     private const float gravity = 9.8f;
     public float fly_power = 4.8f;
